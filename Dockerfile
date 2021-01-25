@@ -2,7 +2,7 @@ FROM golang:latest AS builder
 
 RUN curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
 WORKDIR /go/src/app
-ADD app/ .
+ADD . .
 RUN dep init
 RUN dep ensure
 RUN CGO_ENABLED=0 GOOS=linux go build -a
